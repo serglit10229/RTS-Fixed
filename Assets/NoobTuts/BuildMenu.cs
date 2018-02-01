@@ -16,11 +16,14 @@ public class BuildMenu : MonoBehaviour {
         // Is the player currently selecting a place to build the castle? Or in
         // other words, was the instance variable set?
         if (instance != null) {
+            Debug.Log("Instance");
             // Find out the 3D world coordinates under the cursor
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
             if (Physics.Raycast(ray, out hit)) {
                 if (hit.transform.name == "Ground") {
+                    Debug.Log("Ground");
+                    Debug.Log(instance.transform.position);
                     // Refresh the instance position
                     instance.transform.position = hit.point;
                     
